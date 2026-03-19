@@ -6,11 +6,11 @@ import { MotionController } from './MotionControl/MotionControl.js'
 
 export const canvasInit = ()=>{
     console.log("canvas init start")
-    //get the canvas object
-    const canvas = document.querySelector('canvas')
+    const canvas = document.querySelector('#gameCanvas') || document.querySelector('canvas')
     if(canvas) {
-        canvas.width = CANVAS_WIDTH_DEFAULT
-        canvas.height = CANVAS_HEIGHT_DEFAULT
+        // Fill the hero section viewport
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
         ProcessContent()
     }
 }
