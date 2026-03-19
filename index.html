@@ -1,17 +1,295 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>David Liang</title>
-  </head>
-  <style>
-    body{
-      margin: 0px;
-    }
-  </style>
-  <script type="module" src="./src/index.js"></script>
-  <body>
-    <canvas></canvas>
-  </body>
-</html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>David Liang | Backend Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
 
+  <!-- NAV -->
+  <nav class="pixel-nav">
+    <span class="nav-logo">DL</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">EXP</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO: Canvas Game -->
+  <section id="hero">
+    <canvas id="gameCanvas"></canvas>
+    <div class="hero-overlay">
+      <div class="hero-title">
+        <h1>DAVID LIANG</h1>
+        <p class="hero-subtitle">Backend Engineer</p>
+        <p class="hero-location">Toronto, Canada</p>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span class="scroll-arrow">▼</span>
+      <span class="scroll-text">SCROLL TO EXPLORE</span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="resume-section">
+    <div class="section-inner animate-on-scroll slide-left">
+      <h2 class="section-title"><span class="title-icon">👤</span> ABOUT ME</h2>
+      <div class="pixel-card about-card">
+        <p>Backend-focused software engineer with 3+ years at high-growth tech companies. I build scalable payment systems, data pipelines, and microservices that ship to millions of users.</p>
+        <p>Prev. <strong>Coinbase</strong> & <strong>DoorDash</strong>. BASc ECE @ University of Toronto.</p>
+        <div class="stat-row">
+          <div class="stat-chip">3+ YOE</div>
+          <div class="stat-chip">SDE II</div>
+          <div class="stat-chip">Backend</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="resume-section">
+    <div class="section-inner">
+      <h2 class="section-title animate-on-scroll slide-up"><span class="title-icon">⚔</span> EXPERIENCE</h2>
+
+      <div class="timeline">
+
+        <!-- Coinbase -->
+        <div class="timeline-item animate-on-scroll slide-right">
+          <div class="pixel-card exp-card">
+            <div class="exp-header">
+              <div class="exp-company-block">
+                <span class="exp-company">COINBASE</span>
+                <span class="exp-role">SDE II — Backend</span>
+              </div>
+              <span class="exp-date">04/2025 → NOW</span>
+            </div>
+            <div class="exp-team">Retail P2P Team</div>
+            <ul class="exp-bullets">
+              <li>Launched new Payments tab in Coinbase app — drove <strong>15x</strong> increase in off-chain payment volume</li>
+              <li>Built phone-number payment APIs, driving <strong>~20K new account onboardings</strong> within 3 months</li>
+              <li>Led backend for PayLink: claimable payment links with full DynamoDB lifecycle management (auto-claim, notifications, guest flow)</li>
+              <li>Implemented metrics pipelines & alerts for PayLink adoption and claim states</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DoorDash Selection Growth -->
+        <div class="timeline-item animate-on-scroll slide-left">
+          <div class="pixel-card exp-card">
+            <div class="exp-header">
+              <div class="exp-company-block">
+                <span class="exp-company">DOORDASH</span>
+                <span class="exp-role">SDE — Selection Growth</span>
+              </div>
+              <span class="exp-date">03/2023 – 04/2025</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Migrated delivery coverage from radius-based to route-based model — improved order accuracy</li>
+              <li>Built scalable ETL in Databricks to compute isochrone coverage for all active stores</li>
+              <li>Contributed to rollout across US, CA, AU, NZ → <strong>+$128M annual GMV</strong></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DoorDash Notifications -->
+        <div class="timeline-item animate-on-scroll slide-right">
+          <div class="pixel-card exp-card">
+            <div class="exp-header">
+              <div class="exp-company-block">
+                <span class="exp-company">DOORDASH</span>
+                <span class="exp-role">SDE I — Notifications</span>
+              </div>
+              <span class="exp-date">01/2023 – 07/2023</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Built backend service integrating S3/Snowflake → CockroachDB for "Try Something New" push notifications — <strong>95K MAU growth, $99M GMV/yr</strong></li>
+              <li>Led SMS opt-in toggle removal experiment, cutting SMS costs by <strong>15%</strong> in month 1</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- DoorDash International -->
+        <div class="timeline-item animate-on-scroll slide-left">
+          <div class="pixel-card exp-card">
+            <div class="exp-header">
+              <div class="exp-company-block">
+                <span class="exp-company">DOORDASH</span>
+                <span class="exp-role">SDE I — International Growth</span>
+              </div>
+              <span class="exp-date">03/2022 – 12/2022</span>
+            </div>
+            <ul class="exp-bullets">
+              <li>Built Kotlin/gRPC automation for translation submissions across 100+ internal GitHub repos</li>
+              <li>Created React components for real-time translation quality analysis via Flink</li>
+              <li>Standardized i18n date-time/duration logic in Kotlin and JavaScript libraries</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="resume-section">
+    <div class="section-inner animate-on-scroll slide-up">
+      <h2 class="section-title"><span class="title-icon">🛠</span> SKILLS</h2>
+      <div class="skills-grid">
+
+        <div class="pixel-card skill-category">
+          <h3 class="skill-cat-title">LANGUAGES</h3>
+          <div class="skill-bar-list">
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Golang</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Kotlin</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Java</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">C / C++</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="60"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pixel-card skill-category">
+          <h3 class="skill-cat-title">BACKEND</h3>
+          <div class="skill-bar-list">
+            <div class="skill-item">
+              <span class="skill-name">gRPC</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">REST APIs</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">GraphQL</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Node.js</span>
+              <div class="skill-bar"><div class="skill-fill" data-width="72"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pixel-card skill-category">
+          <h3 class="skill-cat-title">INFRA & DATA</h3>
+          <div class="skill-chips">
+            <span class="chip">DynamoDB</span>
+            <span class="chip">CockroachDB</span>
+            <span class="chip">Databricks</span>
+            <span class="chip">Snowflake</span>
+            <span class="chip">Flink</span>
+            <span class="chip">S3</span>
+            <span class="chip">Kafka</span>
+          </div>
+        </div>
+
+        <div class="pixel-card skill-category">
+          <h3 class="skill-cat-title">FRONTEND</h3>
+          <div class="skill-chips">
+            <span class="chip chip-dim">React</span>
+            <span class="chip chip-dim">TypeScript</span>
+            <span class="chip chip-dim">JavaScript</span>
+            <span class="chip chip-dim">HTML/CSS</span>
+          </div>
+          <p class="skill-note">Familiar</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="resume-section">
+    <div class="section-inner animate-on-scroll slide-up">
+      <h2 class="section-title"><span class="title-icon">📦</span> PROJECTS</h2>
+      <div class="projects-grid">
+
+        <div class="pixel-card project-card animate-on-scroll pop-in">
+          <div class="project-header">
+            <span class="project-icon">📱</span>
+            <h3>Financial AR Scanner</h3>
+          </div>
+          <p class="project-subtitle">TD Bank Capstone · 2020–2021</p>
+          <p>iOS AR app for credit card scanning, currency recognition, and financial literacy. Built with Swift, Ruby, UIKit, and Apple AR platform.</p>
+          <div class="project-tags">
+            <span class="tag">Swift</span>
+            <span class="tag">Ruby</span>
+            <span class="tag">ARKit</span>
+            <span class="tag">UIKit</span>
+          </div>
+        </div>
+
+        <div class="pixel-card project-card animate-on-scroll pop-in" style="animation-delay: 0.1s">
+          <div class="project-header">
+            <span class="project-icon">🎮</span>
+            <h3>This Website</h3>
+          </div>
+          <p class="project-subtitle">Personal Portfolio · 2024</p>
+          <p>Pixel RPG-style personal portfolio with a playable Pokémon-inspired world. Built from scratch with vanilla JS canvas engine.</p>
+          <div class="project-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Canvas API</span>
+            <span class="tag">CSS</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="resume-section">
+    <div class="section-inner animate-on-scroll slide-up">
+      <h2 class="section-title"><span class="title-icon">📡</span> CONTACT</h2>
+      <div class="pixel-card contact-card">
+        <div class="contact-links">
+          <a href="mailto:davidliang1998@gmail.com" class="contact-item">
+            <span class="contact-icon">✉</span>
+            <span>davidliang1998@gmail.com</span>
+          </a>
+          <a href="https://linkedin.com/in/davidziangliang" class="contact-item" target="_blank">
+            <span class="contact-icon">🔗</span>
+            <span>LinkedIn</span>
+          </a>
+          <div class="contact-item">
+            <span class="contact-icon">📍</span>
+            <span>Toronto, Canada</span>
+          </div>
+        </div>
+        <p class="contact-note">Currently @ Coinbase. Open to interesting opportunities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pixel-footer">
+    <p>© 2025 David Liang &nbsp;·&nbsp; Made with ♥ + pixels</p>
+  </footer>
+
+  <script type="module" src="./src/index.js"></script>
+  <script src="./src/scroll-animations.js"></script>
+</body>
+</html>
