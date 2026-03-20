@@ -1,37 +1,14 @@
-import { motion, useScroll, useTransform, MotionValue } from 'motion/react';
+import { motion, useScroll, useTransform } from 'motion/react';
 import { useInView } from './useInView';
 import { useRef } from 'react';
 import { CoinbaseAnimation } from './CoinbaseAnimation';
 import { DoorDashAnimation } from './DoorDashAnimation';
+import { experiences } from '../../data/experiences';
+import type { Experience as ExperienceData } from '../../types/portfolio';
+import { SectionHeader } from './SectionHeader';
+import { EASE_OUT_EXPO } from '../../lib/animation';
 
-const experiences = [
-  {
-    company: 'Coinbase',
-    role: 'Software Development Engineer II',
-    period: 'April 2025 — Present',
-    description: 'Led backend development for new payment experiences',
-    highlights: [
-      '15× increase in off-chain payment volume through simplified UX',
-      '20K+ new accounts onboarded via phone number payments',
-      'Built PayLink lifecycle management system in DynamoDB',
-    ],
-    animation: 'coinbase',
-  },
-  {
-    company: 'DoorDash',
-    role: 'Software Development Engineer',
-    period: 'January 2022 — April 2025',
-    description: 'Scaled platforms across multiple teams and markets',
-    highlights: [
-      '$128M annual GMV from route-based delivery coverage system',
-      '95K MAU growth via AI-powered store recommendations',
-      'Launched internationalization across 4 countries',
-    ],
-    animation: 'doordash',
-  },
-];
-
-function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: number }) {
+function ExperienceCard({ exp, index: _index }: { exp: ExperienceData; index: number }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [inViewRef, isInView] = useInView({ threshold: 0.2 });
   
@@ -52,8 +29,6 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
     cardRef.current = node;
     inViewRef.current = node;
   };
-
-  const isEven = index % 2 === 0;
 
   return (
     <div
@@ -85,7 +60,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ delay: 0.2, duration: 0.8, ease: EASE_OUT_EXPO }}
             >
               {/* Tag */}
               <motion.div
@@ -96,7 +71,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
               >
                 <div className="px-3 py-1 bg-gray-900 rounded-full">
                   <span className="text-xs font-medium text-white tracking-wider uppercase">
-                    {exp.animation === 'coinbase' ? 'Fintech' : 'Logistics'}
+                    {exp.tag}
                   </span>
                 </div>
               </motion.div>
@@ -122,7 +97,7 @@ function ExperienceCard({ exp, index }: { exp: typeof experiences[0]; index: num
                     key={i}
                     initial={{ opacity: 0, x: -30 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
-                    transition={{ delay: 0.4 + i * 0.1, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ delay: 0.4 + i * 0.1, duration: 0.7, ease: EASE_OUT_EXPO }}
                     className="flex items-start gap-3"
                   >
                     <div className="flex-shrink-0 mt-2">
@@ -148,21 +123,7 @@ export function Experience() {
     <section id="experience" ref={sectionRef} className="bg-white">
       {/* Section header */}
       <div className="py-24 px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          viewport={{ once: true }}
-          className="text-center max-w-4xl mx-auto"
-        >
-          <h2 className="text-6xl md:text-8xl font-light tracking-tight text-gray-900 mb-6">
-            Experience
-          </h2>
-          <div className="w-16 h-[1px] bg-gray-900 mx-auto mb-6" />
-          <p className="text-xl md:text-2xl text-gray-600 font-light">
-            Building products at scale
-          </p>
-        </motion.div>
+        <SectionHeader title="Experience" subtitle="Building products at scale" centered />
       </div>
 
       {/* Experience cards with spacing */}

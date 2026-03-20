@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { User, ArrowRight } from 'lucide-react';
+import { User } from 'lucide-react';
 
 export function P2PAnimation() {
   const users = [
@@ -88,9 +88,6 @@ export function P2PAnimation() {
         const fromUser = users.find(u => u.id === conn.from);
         const toUser = users.find(u => u.id === conn.to);
         if (!fromUser || !toUser) return null;
-
-        const midX = (fromUser.x + toUser.x) / 2;
-        const midY = (fromUser.y + toUser.y) / 2;
 
         return (
           <motion.div

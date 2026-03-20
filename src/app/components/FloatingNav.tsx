@@ -1,12 +1,6 @@
 import { motion } from 'motion/react';
 import { useState, useEffect } from 'react';
-
-const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'Experience', href: '#experience' },
-  { name: 'Expertise', href: '#skills' },
-  { name: 'Contact', href: '#contact' },
-];
+import { navItems } from '../../data/nav';
 
 export function FloatingNav() {
   const [isVisible, setIsVisible] = useState(false);
