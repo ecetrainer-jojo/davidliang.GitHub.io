@@ -1,5 +1,7 @@
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
+import { heroContent } from '../../data/hero';
+import { EASE_OUT_EXPO } from '../../lib/animation';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -18,44 +20,44 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, ease: EASE_OUT_EXPO }}
           className="mb-6"
         >
-          <span className="text-sm tracking-[0.2em] text-gray-500 uppercase">Software Engineer</span>
+          <span className="text-sm tracking-[0.2em] text-gray-500 uppercase">{heroContent.title}</span>
         </motion.div>
         
         <motion.h1
           className="text-7xl md:text-9xl font-light tracking-tight mb-8 text-gray-900"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.1, duration: 0.8, ease: EASE_OUT_EXPO }}
         >
-          David Liang
+          {heroContent.name}
         </motion.h1>
         
         <motion.p
           className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-12 font-light"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.2, duration: 0.8, ease: EASE_OUT_EXPO }}
         >
-          Building elegant systems that scale.
+          {heroContent.tagline}
           <br />
-          Coinbase · DoorDash · $200M+ revenue impact
+          {heroContent.subTagline}
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ delay: 0.3, duration: 0.8, ease: EASE_OUT_EXPO }}
           className="flex gap-4 justify-center items-center"
         >
           <motion.a
-            href="#contact"
+            href={heroContent.ctaHref}
             whileHover={{ x: 2 }}
             className="group inline-flex items-center gap-2 text-gray-900 font-medium"
           >
-            Get in touch
+            {heroContent.ctaLabel}
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </motion.a>
         </motion.div>
